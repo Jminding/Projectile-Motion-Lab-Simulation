@@ -26,7 +26,7 @@ class HorizontalProjectileMotionLab:
         self.numTrials = numTrials # number of trials
 
     def showResults(self):
-        '''Horizontal.__str__(self) -> str
+        '''Horizontal.showResults(self) -> str
         Returns whether or not the ball landed in the target based on the inputs given'''
         for _ in range(0,self.numTrials): # run the code however many trials we want
             self.errorConstant = randint(1,100) # redefine the small chance that we're going to make an error every single time, so it's completely random
