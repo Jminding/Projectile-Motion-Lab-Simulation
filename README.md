@@ -1,7 +1,7 @@
 # Horizontal-Projectile-Motion-Lab---Code-Simulation
 I created some code to simulate my Horizontal Projectile Motion Lab from school and compare it with my results
 
-## The code (it will be included in a file here as well)
+## The code (it will be included in a file in the repository as well)
 
 ```python
 from random import *
