@@ -18,7 +18,17 @@ class HorizontalProjectileMotionLab:
 
     def __init__(self,distance,height,rollingTime,numTrials,gConstant=9.81):
         '''HorizontalProjectileMotionLab.(distance,height,rollingTime,gConstant=9.81) -> str
-        Takes the inputs for the distance, height, rolling time, and the gravitational constant (which is by default set to 9.81 m/s^2)'''
+        Takes the inputs for the distance, height, rolling time, and the gravitational constant (which is by default set to 9.81 m/s^2)
+        :param distance: The distance travelled (measured in real life)
+        :type distance: float or int
+        :param height: The height of the table
+        :type height: float or int
+        :param rollingTime: The time it takes for the ball to roll to the edge
+        :type rollingTime: float or int
+        :param numTrials: The number of trials you want to run
+        :type numTrials: int
+        :param gConstant: The gravitational constant for the location
+        :type gConstant: float or int'''
         self.distance = distance # meters (m)
         self.height = height # meters (m)
         self.t_roll = rollingTime # seconds (s)
@@ -32,21 +42,21 @@ class HorizontalProjectileMotionLab:
         self.numTrials = numTrials # number of trials
 
     def showResults(self):
-        '''Horizontal.__str__(self) -> str
-        Returns whether or not the ball landed in the target based on the inputs given'''
+        '''Horizontal.showResults(self) -> str
+        :return: Whether or not the ball landed in the target based on the inputs given
+        :rtype: str'''
         for _ in range(0,self.numTrials): # run the code however many trials we want
             self.errorConstant = randint(1,100) # redefine the small chance that we're going to make an error every single time, so it's completely random
             if self.errorConstant >= 80: # so based on my results, there was a 1/5 chance that the ball would actually stay in the box, so use that here
-                if ceil(self.distance) == ceil(self.horizontalDistance):
-                    if self.distance - self.horizontalDistance == 0.1 or self.horizontalDistance - self.distance == 0.1 or 0 < self.distance - self.horizontalDistance < 0.1 or 0 < self.horizontalDistance - self.distance < 0.1: # make it so that there's a small margin of error
-                        self.goIn += 1 # tally up the times that it went in
-                        print('The ball went directly in the box and stayed in.')
-                    if 0.3 > self.distance - self.horizontalDistance > 0.1 or 0.3 > self.horizontalDistance - self.distance > 0.1: # another small margin of error, if it's in that range then it bounces out
-                        self.bounceOut += 1 # tally up the times that it bounced out
-                        print('The ball went into the box, but bounced out.')
-                    if self.distance - self.horizontalDistance > 0.3 or self.horizontalDistance - self.distance > 0.3: # if it's not within the margin of error at all
-                        self.goOut += 1 # tally up the times that it completely missed
-                        print('The ball did not go into the box.')
+                if self.distance - self.horizontalDistance == 0.1 or self.horizontalDistance - self.distance == 0.1 or 0 < self.distance - self.horizontalDistance < 0.1 or 0 < self.horizontalDistance - self.distance < 0.1: # make it so that there's a small margin of error
+                    self.goIn += 1 # tally up the times that it went in
+                    print('The ball went directly in the box and stayed in.')
+                if 0.3 > self.distance - self.horizontalDistance > 0.1 or 0.3 > self.horizontalDistance - self.distance > 0.1: # another small margin of error, if it's in that range then it bounces out
+                    self.bounceOut += 1 # tally up the times that it bounced out
+                    print('The ball went into the box, but bounced out.')
+                if self.distance - self.horizontalDistance > 0.3 or self.horizontalDistance - self.distance > 0.3: # if it's not within the margin of error at all
+                    self.goOut += 1 # tally up the times that it completely missed
+                    print('The ball did not go into the box.')
             if self.errorConstant < 80: # 4/5 probability of the ball definitely not going in - especially because humans are not perfect, and the ball is not going to roll in an exact straight line
                 if 0 < self.distance - self.horizontalDistance <= 0.1 or 0 < self.horizontalDistance - self.distance <= 0.1:
                     self.bounceOut += 1
@@ -62,6 +72,6 @@ def simLab(distance,height,rollingTime,numTrials=5): # the number of trials by d
     '''simLab(numTrials) -> ()
     runs the HorizontalProjectileLab'''
     print(HorizontalProjectileMotionLab(distance,height,rollingTime,numTrials).showResults())
-simLab(0.41,0.75,0.35,10000)
+simLab(0.41,0.75,0.35,1000)
 # It turns out, that, the more trials I run, the closer the results seem to be that 1/5 of the time, the ball will stay inside the box, and 4/5 of the time, the ball will bounce out of the box.
 ```
