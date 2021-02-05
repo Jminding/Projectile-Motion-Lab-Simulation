@@ -5,14 +5,24 @@ from math import *
 # Created 100% by Jaymin Ding!  Please do not use without his permission.
 # I created this because code can run an experiment much faster than I can ;)
 # This was created purely for fun and to compare results with my error analysis - it turns out that the error analysis was pretty accurate.
-# I did the actual experiment, and I created this solely for comparison.
+# I did the actual experiment, and I created this solely for comparison.  The code's results were made to look realistic, INCLUDING the small probability of doing it perfectly (1/5 for me in real life)
 
 class HorizontalProjectileMotionLab:
     '''Represents a simulation of the horizontal projectile motion lab'''
 
     def __init__(self,distance,height,rollingTime,numTrials,gConstant=9.81):
         '''HorizontalProjectileMotionLab.(distance,height,rollingTime,gConstant=9.81) -> str
-        Takes the inputs for the distance, height, rolling time, and the gravitational constant (which is by default set to 9.81 m/s^2)'''
+        Takes the inputs for the distance, height, rolling time, and the gravitational constant (which is by default set to 9.81 m/s^2)
+        :param distance: The distance travelled (measured in real life)
+        :type distance: float or int
+        :param height: The height of the table
+        :type height: float or int
+        :param rollingTime: The time it takes for the ball to roll to the edge
+        :type rollingTime: float or int
+        :param numTrials: The number of trials you want to run
+        :type numTrials: int
+        :param gConstant: The gravitational constant for the location
+        :type gConstant: float or int'''
         self.distance = distance # meters (m)
         self.height = height # meters (m)
         self.t_roll = rollingTime # seconds (s)
@@ -27,7 +37,8 @@ class HorizontalProjectileMotionLab:
 
     def showResults(self):
         '''Horizontal.showResults(self) -> str
-        Returns whether or not the ball landed in the target based on the inputs given'''
+        :return: Whether or not the ball landed in the target based on the inputs given
+        :rtype: str'''
         for _ in range(0,self.numTrials): # run the code however many trials we want
             self.errorConstant = randint(1,100) # redefine the small chance that we're going to make an error every single time, so it's completely random
             if self.errorConstant >= 80: # so based on my results, there was a 1/5 chance that the ball would actually stay in the box, so use that here
