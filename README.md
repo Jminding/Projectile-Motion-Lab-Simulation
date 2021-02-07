@@ -1,3 +1,10 @@
+# Horizontal Projectile Motion Lab - Code Simulation
+
+## Created to simulate the lab - code can run an experiment much faster than I can!
+
+### It turns out, the results seem to be pretty close to what the results are in real life.
+
+```python
 from random import *
 from math import *
 
@@ -71,3 +78,4 @@ def simLab(distance,targetDistance,height,rollingTime,numTrials=5): # the number
     print(HorizontalProjectileMotionLab(distance,targetDistance,height,rollingTime,numTrials).showResults())
 simLab(0.41,0.39,0.75,0.35,1000)
 # It turns out, that, the more trials I run, the closer the results seem to be that 1/5 of the time, the ball will stay inside the box, and 4/5 of the time, the ball will bounce out of the box.
+```
