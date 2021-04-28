@@ -1,4 +1,4 @@
-# Horizontal Projectile Motion Lab - Code Simulation
+# Projectile Motion Lab Simulation
 
 ## Created to simulate the lab - code can run an experiment much faster than I can!
 
